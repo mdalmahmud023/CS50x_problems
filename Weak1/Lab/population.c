@@ -28,6 +28,6 @@ int main(void)
         year = year + 1;
 
     }
-    printf("%i\n", year);
+    printf("%i\n",year);
 
 }

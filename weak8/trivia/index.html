@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+
+                //for multiple choice question
+                let correct = document.querySelectorAll('.correct')
+                for (let i = 0; i < correct.length; i++) {
+                    correct[i].addEventListener('click', function() {
+
+                        correct[i].style.backgroundColor = 'Green';
+                        correct[i].parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                    });
+                }
+
+                let incorrects = document.querySelectorAll(".incorrect");
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener('click', function() {
+
+                        incorrects[i].style.backgroundColor = 'Red';
+                        incorrects[i].parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+                    });
+                }
+
+                //for free response
+                document.querySelector('#check').addEventListener('click', function() {
+                    let input = document.querySelector('input');
+                    if (input.value === '6') {
+                        input.style.backgroundColor = 'green';
+                        input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                    }
+                    else {
+                        input.style.backgroundColor = 'red';
+                        input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+                    }
+                });
+
+            })
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the colour of sky?</h3>
+                <button class="incorrect">Red</button>
+                <button class="incorrect">Green</button>
+                <button class="correct">Blue</button>
+                <button class="incorrect">Yellow</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>How many Token C has?</h3>
+                <input type="text" placeholder="Answer">
+                <button id="check">Check Answer</button>
+                <p class="feedback"></p>
+            </div>
+        </div>
+    </body>
+</html>
